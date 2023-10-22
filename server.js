@@ -4,6 +4,10 @@ const cors = require('cors');
 const mongoose  = require('mongoose');
 require('dotenv').config();
 
+const foodRouter = require('./routes/foodRoutes');
+
+app.use(foodRouter);
+
 const port = 3000;
 
 // db
