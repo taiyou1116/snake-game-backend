@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const foodModel = require('../models/food');
 
 app.use(express.json());
+app.use(cors());
 
 // データ取得
 app.get('/foods', async(req, res) => {
