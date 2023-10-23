@@ -31,10 +31,15 @@ app.post('/record', async(req, res) => {
 })
 
 // データ部分修正
-app.patch('/record/:id', async(req, res) => {
+app.patch('/record/:uid', async(req, res) => {
     try {
-        await recordModel.findByIdAndUpdate(req.params.id, req.body);
-        await recordModel.save();
+        const updatedRecord = await recordModel.findOneAndUpdate(
+            { uid: req.params.uid },  // ここでuidフィールドを指定
+            req.body,
+            { new: true }
+        );
+        res.status(200).send(updatedRecord);
+
     } catch(err) {
         res.status(500).send(err);
     }
