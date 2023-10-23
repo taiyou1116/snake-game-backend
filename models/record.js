@@ -1,21 +1,27 @@
 const mongoose = require('mongoose');
 
-const foodSchema = new mongoose.Schema({
+const recordSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         trim: true,
         lowercase: true,
     },
-    calories: {
+    record: {
         type: Number,
         default: 0,
         validate(value) {
             if(value < 0) throw new Error('マイナスはないぜ');
         }
-    }
+    },
+    uid: {
+        type: String,
+        required: true,
+        // trim: true,
+        lowercase: true,
+    },
 })
 
-const food = mongoose.model('FOOD', foodSchema);
+const record = mongoose.model('RECORD', recordSchema);
 
-module.exports = food;
+module.exports = record;

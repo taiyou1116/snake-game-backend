@@ -3,9 +3,9 @@ const app = express();
 const mongoose  = require('mongoose');
 require('dotenv').config();
 
-const foodRouter = require('./routes/foodRoutes');
+const recordRouter = require('./routes/rankingRoutes');
 
-app.use(foodRouter);
+app.use(recordRouter);
 
 const port = 3000;
 
