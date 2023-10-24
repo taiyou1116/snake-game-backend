@@ -45,13 +45,4 @@ app.patch('/record/:uid', async(req, res) => {
     }
 })
 
-// データ削除
-app.delete('/record/:id', async(req, res) => {
-    try {
-        await recordModel.findByIdAndDelete(req.params.id);
-    } catch(err) {
-        res.status(500).send(err);
-    }
-})
-
 module.exports = app;
