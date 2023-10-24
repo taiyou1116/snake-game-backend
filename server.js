@@ -7,7 +7,7 @@ const recordRouter = require('./routes/rankingRoutes');
 
 app.use(recordRouter);
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // db
 mongoose.connect(process.env.MONGODB_URI)
