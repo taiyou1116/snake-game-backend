@@ -4,8 +4,13 @@ const cors = require('cors');
 
 const recordModel = require('../models/record');
 
+const corsOptions = {
+    origin: 'https://taiyou1116.com',
+    optionsSuccessStatus: 204,
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cors());
 
 // データ取得
 app.get('/records', async(req, res) => {
